@@ -27,7 +27,7 @@ pub fn parse_args() -> Result<Option<Config>, Error> {
         .or_else(|| {
             env::var_os("GRAB_HOME").map(PathBuf::from).or_else(|| {
                 home::home_dir().map(|mut dir| {
-                    dir.push("src");
+                    dir.push("dev");
                     dir
                 })
             })
@@ -77,7 +77,7 @@ OPTIONS:
     -h, --help
             Prints help information
 
-        --home [default: ~/src or $GRAB_HOME]
+        --home [default: ~/dev or $GRAB_HOME]
             The directory to use as \"grab home\", where the URLs will be
             cloned into. Overrides the GRAB_HOME environment variable if
             set.
